@@ -7,47 +7,16 @@ function generateCustomerSalesMap(salesData, customerData) {
       }
     }
     let name = customer.name;
-    if (obj[name]) {
-      obj[name] += total;
-    } else {
-      obj[name] = total;
-    }
+    obj[name] = total;
     return obj;
   }, {});
 }
+/*
+Line 2: The initial reduce function loops through the customer data.
+Line 4 - 8: Loops through the sales data looking for IDs on sales that match the current customer's ID.
+If it matches, then it is increated to the total variable declared in line 3.
+Line 9 - 14: Assigns customer name to the object as the key with the value being the total sales made by that customer
+Line 11: Object is returned to be the accum value for the next customer, if any.
+*/
 
 module.exports = generateCustomerSalesMap;
-/*The Acme Company collects data regarding their sales.
-
-const sales = [{
-    customerID : 1,
-    orderID : 1,
-    total : 3
-}, 
-{customerID : 2, 
-orderID: 2, 
-total: 4}
-}]
-
-They also have data for their customers
-
-const customers = [
-    {ID : 1,
-    name: 'Moe'},
-    {ID : 2,
-    name : 'Larry}
-]
-
-Direction: write a function with the following signature
-
-function generateCustomerSalesMap(salesData, customerData){}
-which will return an object where the keys are the customer names and
-the values are the total sales for that customer
-
-example return result : {
-    moe : 55,
-    larry : 33,
-    carly : 0
-}
-use mocha, chai for some test!!
-*/
