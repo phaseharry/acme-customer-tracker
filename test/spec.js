@@ -54,7 +54,39 @@ describe('tracks total amount of customer orders', function() {
       Larry: 4,
     });
   });
-
+  it('does not put data in salesmap if ID does not match any ID in customer database', function() {
+    const customers = [
+      {
+        ID: 1,
+        name: 'Moe',
+      },
+      {
+        ID: 2,
+        name: 'Larry',
+      },
+    ];
+    const sales = [
+      {
+        customerID: 1,
+        orderID: 1,
+        total: 3,
+      },
+      {
+        customerID: 2,
+        orderID: 2,
+        total: 4,
+      },
+      {
+        customerID: 3,
+        orderID: 3,
+        total: 203,
+      },
+    ];
+    expect(generateCustomerSalesMap(sales, customers)).to.eql({
+      Moe: 3,
+      Larry: 4,
+    });
+  });
   it(`can track multiple orders from the same customer`, function() {
     const sales = [
       {
