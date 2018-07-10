@@ -5,7 +5,26 @@ describe('tracks total amount of customer orders', function() {
   it('exists', function() {
     expect(generateCustomerSalesMap).to.be.ok;
   });
+  it('accepts empty arrays', function() {
+    expect(generateCustomerSalesMap([], [])).to.eql({});
+  });
+  it('can accept no sales data', function() {
+    const customers = [
+      {
+        ID: 1,
+        name: 'Moe',
+      },
+      {
+        ID: 2,
+        name: 'Larry',
+      },
+    ];
 
+    expect(generateCustomerSalesMap([], customers)).to.eql({
+      Moe: 0,
+      Larry: 0,
+    });
+  });
   it(`can track simple sales data`, function() {
     const sales = [
       {
