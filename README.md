@@ -1,5 +1,10 @@
 # acme-customer-tracker
 
+install nodemon
+npm install
+npm test
+
+
 Assignment: 
 
 const sales = [{
