@@ -30,6 +30,7 @@ const customers = [
 
 Direction: write a function with the following signature
 
+
 function generateCustomerSalesMap(salesData, customerData){}
 which will return an object where the keys are the customer names and
 the values are the total sales for that customer
@@ -39,5 +40,6 @@ example return result : {
     larry : 33,
     carly : 0
 }
+
 use mocha, chai for some test!!
 */
