@@ -1,7 +1,9 @@
 # acme-customer-tracker
 
 install nodemon
+
 npm install
+
 npm test
 
 
